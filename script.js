@@ -1,7 +1,10 @@
 function minDate(dates) {
   //write you code here
+	const dateObj = dates.map(date => new Date(date.replace(/-/g,'/')));
+	const minDate = new Date(Math.min.apply(null,dateObj));
+	const formatDate = `${minDate.getFullYear()}/${(minDate.getMonth() + 1).toString().padStart(2, '0')}/${minDate.getDate().toString().padStart(2, '0')}`;
+    return formatDate;
 }
-
 // Do not change the code
 
 var dates = [
@@ -37,4 +40,4 @@ var dates = [
   "2023/03/30",
 ];
 
-alert(minDate(dates));
+ alert(minDate(dates));
